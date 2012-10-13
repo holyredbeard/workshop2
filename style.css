@@ -1,0 +1,22 @@
+body {
+	font-size: 12px;
+	font-family: arial;
+}
+
+th {
+	text-align: left;
+	background: #bb8;
+}
+
+a {
+	display: block;
+	width: 115px;
+	height: 10px;
+	background: #555;
+	padding: 2px 2px 5px 2px;
+	text-align: center;
+	margin-left: 15px;
+	border-radius: 2px;
+	color: white;
+	text-decoration: none;
+}
