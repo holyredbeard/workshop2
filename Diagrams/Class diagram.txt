@@ -1,5 +1,5 @@
-[MasterController||+DoControl()]->[Database|-Mysqli|+Connect();+Prepare();+GetAllMembers();+DeleteQuery();+InsertQuery();+ChangeQuery();+GetMemberInfo();+Close()]
-[Database]->[DBConfig|+m_host;+m_user;+m_pass;+m_db|]
+[MasterController|| +DoControl()]->[Database|-Mysqli|+Connect();+Prepare();+GetAllMembers();+DeleteQuery();+InsertQuery();+ChangeQuery();+GetMemberInfo();+Close()]
+[MasterController]-.->[DBConfig|+m_host;+m_user;+m_pass;+m_db|]
 [MasterController]->[RegisterController||+DoControl()]
 [MasterController]->[MemberController]
 //[RegisterController]->[Database]
