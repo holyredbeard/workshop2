@@ -63,9 +63,9 @@ class MemberView {
                             </tr
                             <tr>
                                 <td>$id</td>  
-                                <td><input type='text' name='$this->m_fName' value=$fName/></td>
-                                <td><input type='text' name='$this->m_lName' value=$lName/></td>
-                                <td><input type='text' name='$this->m_ssn' value=$SSN/></td>
+                                <td><input type='text' name='$this->m_fName' value=$fName /></td>
+                                <td><input type='text' name='$this->m_lName' value=$lName /></td>
+                                <td><input type='text' name='$this->m_ssn' value=$SSN /></td>
                                 <td><input type='submit' name='$this->m_submitChange' value='Spara' /></td>
                             </tr>
                             <input type='hidden' name='$this->m_id' value='$id' />

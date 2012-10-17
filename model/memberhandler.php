@@ -53,6 +53,6 @@ class MemberHandler {
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("ssii", $fName, $lName, $SSN, $id);
         
-        $this->m_db->ChangeQuery($stmt);
+        $this->m_db->ExecuteQuery($stmt);
     }
 }
