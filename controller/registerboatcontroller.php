@@ -23,7 +23,7 @@ class RegisterBoatController {
 			// register boat
 			echo $regBoatHandler->DoRegisterBoat($userId, $type, $length);
 		}
-
+			
 		return $outputHTML;
 
 	}

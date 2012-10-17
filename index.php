@@ -34,13 +34,22 @@ class MasterController {
         $regBoatController = new \Controller\RegisterBoatController();
         $removeBoatController = new \Controller\RemoveBoatController();
 
-      ////  $out .= $memberController->DoControl($db);
-       // $out .= $regController->DoControl($db);
-        $HTMLRegBoat = $regBoatController->DoControl($db);
-        $HTMLRemoveBoat = $removeBoatController->DoControl($db);
 
         $HTMLMember = $memberController->DoControl($db);
-        $HTMLReg = $regController->DoControl($db);
+        $HTMLRemoveBoat = $removeBoatController->DoControl($db);
+        //
+        switch ($_GET['action']) {
+                
+            case 'addBoat':
+                $HTMLRegBoat = $regBoatController->DoControl($db);
+                break;
+
+            case 'register':
+                $HTMLReg = $regController->DoControl($db);
+                break;
+        }
+
+
 
         $cv = new \View\CompositionView();
 
@@ -64,6 +73,10 @@ $body = $mc->DoControl();
         <title>Titel</title>
     </head>
     <body>
+        <a href="index.php">Hem</a>
+        <br />
+        <a href="?action=register">Lägg till medlem</a>
+        <br />
         <?php
             echo $body;
         ?>
