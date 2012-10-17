@@ -14,9 +14,9 @@ class MemberHandler {
         $members = array();
         
        // $query = "SELECT * FROM member";
-        $query = "SELECT m.memberId, m.fName, m.lName, m.ssn, b.memberId
+        $query = "SELECT m.memberId, m.fName, m.lName, m.ssn, count(b.memberId)
                     FROM member AS m 
-                    INNER JOIN boat AS b ON b.memberId = m.memberId
+                    LEFT JOIN boat AS b ON b.memberId = m.memberId
                     GROUP BY m.memberId";
         $stmt = $this->m_db->Prepare($query);
         $members = $this->m_db->GetAllMembers($stmt);
