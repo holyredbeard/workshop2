@@ -19,6 +19,7 @@ class MemberView {
         $fNames = $members[1];
         $lNames = $members[2];
         $SSN = $members[3];
+        $boats = $members[4];
         
         $i = 0;
 
@@ -37,7 +38,7 @@ class MemberView {
             <td>$memberIds[$i]</td>
             <td>$fNames[$i]</td>
             <td>$lNames[$i]</td>
-            <td>0</td>
+            <td>$boats[$i]</td>
             <td><a href=\"index.php?action=showAllInfo&id=$memberIds[$i]\">Fullständig info</a></td>
             <td><a href=\"index.php?action=changeInfo&id=$memberIds[$i]\">Ändra info</a></td>
             <td><a href=\"index.php?action=addBoat&id=$memberIds[$i]\">Lägg till båt</a></td>
