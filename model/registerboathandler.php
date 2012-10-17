@@ -14,7 +14,7 @@ class RegisterBoatHandler {
         $query = "INSERT INTO boat (boatTypeId, length, memberId) VALUES (?, ?, ?)";
         $stmt = $this->m_db->Prepare($query);
     	$stmt->bind_param('iii', $type, $length, $memberId);
-        $this->m_db->InsertQuery($stmt);
+        $this->m_db->ExecuteQuery($stmt);
         $stmt->Close();
 	}
 }
