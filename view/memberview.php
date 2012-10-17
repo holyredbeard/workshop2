@@ -38,9 +38,10 @@ class MemberView {
             <td>$fNames[$i]</td>
             <td>$lNames[$i]</td>
             <td>0</td>
-            <td><a href=\"index.php?action=delete&id=$memberIds[$i]\">Ta bort medlem</a></td>
+            <td><a href=\"index.php?action=showAllInfo&id=$memberIds[$i]\">Fullständig info</a></td>
             <td><a href=\"index.php?action=changeInfo&id=$memberIds[$i]\">Ändra info</a></td>
             <td><a href=\"index.php?action=addBoat&id=$memberIds[$i]\">Lägg till båt</a></td>
+            <td><a href=\"index.php?action=delete&id=$memberIds[$i]\">Ta bort medlem</a></td>
             </tr>";
 
             $i += 1;
@@ -49,6 +50,31 @@ class MemberView {
         $listOfMembers .= "</table>";
 
         return $listOfMembers;
+    }
+
+    public function ShowFullMemberInfo($memberInfo) {
+        $id = $memberInfo[0];
+        $fName = $memberInfo[1];
+        $lName = $memberInfo[2];
+        $SSN = $memberInfo[3];
+
+        $memberInfo = "<div>
+                        <table width='600px'>
+                            <th>
+                                <td>Medlemsnr</td>
+                                <td>Förnamn</td>
+                                <td>Efternamn</td>
+                                <td>Personnr</td>
+                            </th>
+                            <tr>
+                                <td>$id</td>
+                                <td>$fName</td>
+                                <td>$lName</td>
+                                <td>$SSN</td>
+                            </tr>
+                        </div>";
+
+        return $memberInfo;
     }
 
     public function GetChangeForm($id, $fName, $lName, $SSN) {
