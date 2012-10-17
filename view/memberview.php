@@ -60,18 +60,19 @@ class MemberView {
 
         $memberInfo = "<div>
                         <table width='600px'>
-                            <th>
-                                <td>Medlemsnr</td>
-                                <td>Förnamn</td>
-                                <td>Efternamn</td>
-                                <td>Personnr</td>
-                            </th>
+                            <tr>
+                                <th>Medlemsnr</th>
+                                <th>Förnamn</th>
+                                <th>Efternamn</th>
+                                <th>Personnr</th>
+                            </tr>
                             <tr>
                                 <td>$id</td>
                                 <td>$fName</td>
                                 <td>$lName</td>
                                 <td>$SSN</td>
                             </tr>
+                        </table>
                         </div>";
 
         return $memberInfo;
