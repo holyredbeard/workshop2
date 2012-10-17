@@ -18,7 +18,7 @@ class RegisterHandler {
         
         $stmt->bind_param('ssi', $fName, $lName, $SSN);
         
-        $this->m_db->InsertQuery($stmt);
+        $this->m_db->ExecuteQuery($stmt);
         
         $stmt->Close();
     }

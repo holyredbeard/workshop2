@@ -34,7 +34,7 @@ class MemberHandler {
     }
     
     public function DeleteMember($member) {
-        $query = "DELETE FROM member WHERE membeId=?";
+        $query = "DELETE FROM member WHERE memberId=?";
         
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("i", $member);
