@@ -24,7 +24,7 @@ class MemberView {
         $i = 0;
 
         $listOfMembers = "<h3>Medlemmar</h3>
-                        <table width='600px'>
+                        <table width='1000px'>
                         <tr>
                         <th>Medlemsnr</th>
                         <th>Förnamn</th>
@@ -60,7 +60,7 @@ class MemberView {
         $SSN = $memberInfo[3];
 
         $memberInfo = "<div>
-                        <table width='600px'>
+                        <table width='800px'>
                             <tr>
                                 <th>Medlemsnr</th>
                                 <th>Förnamn</th>
