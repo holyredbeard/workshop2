@@ -14,7 +14,7 @@ class MemberHandler {
         $members = array();
         
        // $query = "SELECT * FROM member";
-        $query = "SELECT m.memberId, m.fName, m.lName, m.ssn, count(b.memberId )
+        $query = "SELECT m.memberId, m.fName, m.lName, m.ssn, b.memberId
                     FROM member AS m 
                     INNER JOIN boat AS b ON b.memberId = m.memberId
                     GROUP BY m.memberId";

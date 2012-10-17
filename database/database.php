@@ -52,7 +52,6 @@ class Database {
             array_push($members[2], $lname);
             array_push($members[3], $ssn);
             array_push($members[4], $boats);
-
         }
         
         $stmt->Close();
