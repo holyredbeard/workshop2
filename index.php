@@ -70,7 +70,7 @@ $body = $mc->DoControl();
     <head>
         <link rel="stylesheet" type="text/css" href="style.css" />
         <meta charset="utf-8">
-        <title>Titel</title>
+        <title>Den glade piraten</title>
     </head>
     <body>
         <a href="index.php">Hem</a>

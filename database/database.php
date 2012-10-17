@@ -38,18 +38,21 @@ class Database {
                 0 => array(),
                 1 => array(),
                 2 => array(),
-                3 => array()
+                3 => array(),
+                4 => array()
             );
         
         $stmt->execute();
         
-        $stmt->bind_result($id, $fname, $lname, $ssn);
+        $stmt->bind_result($id, $fname, $lname, $ssn, $boats);
         
         while ($stmt->fetch()) {
             array_push($members[0], $id);
             array_push($members[1], $fname);
             array_push($members[2], $lname);
             array_push($members[3], $ssn);
+            array_push($members[4], $boats);
+
         }
         
         $stmt->Close();

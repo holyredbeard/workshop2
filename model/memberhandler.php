@@ -13,10 +13,14 @@ class MemberHandler {
     public function GetMembers() {
         $members = array();
         
-        $query = "SELECT * FROM member";
+       // $query = "SELECT * FROM member";
+        $query = "SELECT m.memberId, m.fName, m.lName, m.ssn, count(b.memberId )
+                    FROM member AS m 
+                    INNER JOIN boat AS b ON b.memberId = m.memberId
+                    GROUP BY m.memberId";
         $stmt = $this->m_db->Prepare($query);
         $members = $this->m_db->GetAllMembers($stmt);
-        
+       // var_dump($members);
         return $members;
     }
 
