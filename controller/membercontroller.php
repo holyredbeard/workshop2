@@ -41,7 +41,11 @@ class MemberController {
                     $out .= $memberView->GetChangeForm($id, $fName, $lName, $SSN);
                 }
             }
-            elseif ($action == delete) {
+            else if ($action == showAllInfo) {
+                $memberInfo = $memberHandler->GetMember($id);
+                $out .= $memberView->ShowFullMemberInfo($memberInfo);
+            }
+            else if ($action == delete) {
                 $memberHandler->DeleteMember($id);
             }
         }
