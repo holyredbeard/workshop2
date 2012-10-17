@@ -34,7 +34,7 @@ class MasterController {
         $regBoatController = new \Controller\RegisterBoatController();
         $removeBoatController = new \Controller\RemoveBoatController();
 
-      //  $out .= $memberController->DoControl($db);
+      ////  $out .= $memberController->DoControl($db);
        // $out .= $regController->DoControl($db);
         $HTMLRegBoat = $regBoatController->DoControl($db);
         $HTMLRemoveBoat = $removeBoatController->DoControl($db);
