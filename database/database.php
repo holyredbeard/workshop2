@@ -57,7 +57,7 @@ class Database {
         return $members;
     }
 
-    public function DeleteQuery($stmt) {
+    public function ExecuteQuery($stmt) {
     	
         //execute the statement
         if ($stmt->execute() == FALSE) {
@@ -65,21 +65,21 @@ class Database {
             echo $this->mysqli->error;
         }
     }
+
+    public function GetMemberInfo($stmt) {
         
-    public function InsertQuery($stmt) {
-        $stmt->execute();
+        if ($stmt->execute() == false) {
+            throw new \Exception($this->mysqli->error);
+        }  
         
-        $stmt->insert_id;
+        //Bind the $ret parameter so when we call fetch it gets its value
+        if ($stmt->bind_result($id, $fName, $lName, $SSN) == FALSE) {
+            throw new \Exception($this->mysqli->error);
+        }
+
+        $test = $stmt->fetch_assoc();
     }
-        
-    public function ChangeQuery() {
-        // ...
-    }
-    
-    public function GetMemberInfo() {
-        //...
-    }
-    
+
     public function Close() {
         return $this->mysqli->close();
     }

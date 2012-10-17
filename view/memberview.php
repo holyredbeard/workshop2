@@ -5,15 +5,15 @@ namespace View;
 class MemberView {
     
     private $m_deleteMember = 'deleteMember[]';
-    private $m_changeMember = 'changeMemer[]';
+    private $m_changeMember = 'changeMember[]';
 
+    private $m_id = 'id';
     private $m_fName = 'fname';
     private $m_lName = 'lname';
     private $m_ssn = 'ssn';
     private $m_submitChange = 'submit';
 
     public function ShowMembers($members) {
-
         
         $memberIds = $members[0];
         $fNames = $members[1];
@@ -51,7 +51,7 @@ class MemberView {
         return $listOfMembers;
     }
 
-    public function GetChangeForm() {
+    public function GetChangeForm($id, $fName, $lName, $SSN) {
         $changeForm = "<form method='post'>
                         <h3>Ändra medlemsinfo</h3>
                         <table width='600px'>
@@ -59,15 +59,16 @@ class MemberView {
                                 <th>Medlemsnr</th>
                                 <th>Förnamn</th>
                                 <th>Efternamn</th>
-                            <th>Antal båtar</th>
+                                <th>Personnr</th>
                             </tr
                             <tr>
-                                <td><input type='text' name='$this->m_fName' /></td>
-                                <td><input type='text' name='$this->m_lName' /></td>
-                                <td><input type='text' name='$this->m_ssn' /></td>
-                                <td><input type='text' name='$this->m_boats' Value='Ej klar'/></td>
-                                <td><input type='submit' name='$this->submitChange' value='Spara' /></td>
+                                <td>$id</td>  
+                                <td><input type='text' name='$this->m_fName' value=$fName/></td>
+                                <td><input type='text' name='$this->m_lName' value=$lName/></td>
+                                <td><input type='text' name='$this->m_ssn' value=$SSN/></td>
+                                <td><input type='submit' name='$this->m_submitChange' value='Spara' /></td>
                             </tr>
+                            <input type='hidden' name='$this->m_id' value='$id' />
                         </table>
                        </form>";
 
@@ -75,20 +76,18 @@ class MemberView {
     }
 
     public function GetUserInfo() {
-        
+        $id = $_POST[$this->m_id];
         $fName = $_POST[$this->m_fName];
         $lName = $_POST[$this->m_lName];
         $SSN = $_POST[$this->m_ssn];
 
-        $userInfo = array($fName, $lname, $SSN);
+        $userInfo = array($id, $fName, $lName, $SSN);
 
         return $userInfo;
-        // variablar case sensitive i php?
     }
 
     public function TriedToChange() {
-        if (isset($_POST[$this->submitChange])) {
-            echo 'yes';
+        if (isset($_POST[$this->m_submitChange])) {
             return true;
         }
         else {
