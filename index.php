@@ -39,8 +39,8 @@ class MasterController {
         $out .= $regBoatController->DoControl($db);
         $out .= $removeBoatController->DoControl($db);
 
-        $HTMLMember .= $memberController->DoControl($db);
-        $HTMLReg .= $regController->DoControl($db);
+        $HTMLMember = $memberController->DoControl($db);
+        $HTMLReg = $regController->DoControl($db);
 
         $cv = new \View\CompositionView();
 
