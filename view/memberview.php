@@ -40,6 +40,7 @@ class MemberView {
             <td>0</td>
             <td><a href=\"index.php?action=delete&id=$memberIds[$i]\">Ta bort medlem</a></td>
             <td><a href=\"index.php?action=changeInfo&id=$memberIds[$i]\">Ändra info</a></td>
+            <td><a href=\"index.php?action=addBoat&id=$memberIds[$i]\">Lägg till båt</a></td>
             </tr>";
 
             $i += 1;
