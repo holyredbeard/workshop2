@@ -13,7 +13,7 @@
 
     require_once('Controller/RegisterBoatController.php');
     require_once('Controller/RemoveBoatController.php');
-=======
+
     require_once('View/RegisterView.php');
     require_once('View/CompositionView.php');
 
