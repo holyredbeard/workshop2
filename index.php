@@ -11,8 +11,7 @@
     // Views
     require_once('View/MemberView.php');
 
-    require_once('Controller/RegisterBoatController.php');
-    require_once('Controller/RemoveBoatController.php');
+    require_once('Controller/BoatController.php');
 
     require_once('View/RegisterView.php');
     require_once('View/CompositionView.php');
@@ -31,17 +30,16 @@ class MasterController {
         $regController = new \Controller\RegisterController();
         $memberController = new \Controller\MemberController();
 
-        $regBoatController = new \Controller\RegisterBoatController();
-        $removeBoatController = new \Controller\RemoveBoatController();
+        $boatController = new \Controller\BoatController($db);
 
 
         $HTMLMember = $memberController->DoControl($db);
-        $HTMLRemoveBoat = $removeBoatController->DoControl($db);
+        $HTMLBoat = $boatController->DoControlRemove();
         //
         switch ($_GET['action']) {
                 
             case 'addBoat':
-                $HTMLRegBoat = $regBoatController->DoControl($db);
+                $HTMLBoat = $boatController->DoControlRegister();
                 break;
 
             case 'register':
@@ -53,7 +51,7 @@ class MasterController {
 
         $cv = new \View\CompositionView();
 
-        $out = $cv->merge($HTMLMember, $HTMLReg, $HTMLRegBoat, $HTMLRemoveBoat);
+        $out = $cv->merge($HTMLMember, $HTMLReg, $HTMLBoat);
         
         // kill DB-conn
         $db->Close();

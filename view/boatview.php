@@ -1,12 +1,15 @@
 <?php
 namespace View;
 
-class RegisterBoatView {
+class BoatView {
 
 	const BOAT_TYPE = 'boatTypeForm';
 	const BOAT_LENGTH = 'boatLengthForm';
 	const BOAT_SUBMIT = 'boatSubmitForm';
 	const USER_ID = 'id';
+
+	const BOAT_ID = 'boatId';
+
 
 	public function DoRegisterBox() {
 		$html = "
@@ -45,4 +48,17 @@ class RegisterBoatView {
 	public function GetUserId() {
 		return $_GET[self::USER_ID];
 	}
+
+
+	public function UserClickedRemove() {
+		if (isset($_GET[self::BOAT_ID])) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function GetBoatId() {
+		return $_GET[self::BOAT_ID];
+	}	
 }

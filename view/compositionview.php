@@ -7,11 +7,10 @@ class CompositionView {
     /**
      * @return String HTML
      */
-    public function merge($HTMLMembers, $HTMLReg, $HTMLRegBoat, $HTMLRemoveBoat) {
+    public function merge($HTMLMembers, $HTMLReg, $HTMLBoat) {
     	$out = "<div>$HTMLMembers</div>
     			<div>$HTMLReg</div>
-    			<div>$HTMLRegBoat</div>
-    			<div>$HTMLRemoveBoat</div>";
+    			<div>$HTMLBoat</div>";
 
         return $out;
     }
