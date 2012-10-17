@@ -67,6 +67,8 @@ class Database {
     }
 
     public function GetMemberInfo($stmt) {
+
+        $userInfo = array();
         
         if ($stmt->execute() == false) {
             throw new \Exception($this->mysqli->error);
@@ -77,7 +79,14 @@ class Database {
             throw new \Exception($this->mysqli->error);
         }
 
-        $test = $stmt->fetch_assoc();
+        while ($stmt->fetch()) {
+            $userInfo[] = $id;
+            $userInfo[] = $fName;
+            $userInfo[] = $lName;
+            $userInfo[] = $SSN;
+        }
+
+        return $userInfo;
     }
 
     public function Close() {

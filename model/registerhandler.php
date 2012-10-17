@@ -12,7 +12,7 @@ class RegisterHandler {
         
     public function DoRegister($fName, $lName, $SSN) {
         
-        $query = "INSERT INTO member (fname, lname, ssn) VALUES (?, ?, ?)";
+        $query = "INSERT INTO member (fName, lName, ssn) VALUES (?, ?, ?)";
         
         $stmt = $this->m_db->Prepare($query);
         

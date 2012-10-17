@@ -10,8 +10,15 @@
 
     // Views
     require_once('View/MemberView.php');
+<<<<<<< HEAD
     require_once('Controller/RegisterBoatController.php');
     require_once('Controller/RemoveBoatController.php');
+=======
+
+    require_once('Controller/RegisterBoatController.php');
+    require_once('Controller/RemoveBoatController.php');
+
+>>>>>>> 979b16b02ada4cb16e2e16be9964c9dcd94bb78a
     require_once('View/RegisterView.php');
     require_once('View/CompositionView.php');
 
@@ -32,13 +39,18 @@ class MasterController {
         $regBoatController = new \Controller\RegisterBoatController();
         $removeBoatController = new \Controller\RemoveBoatController();
 
-
         $out .= $memberController->DoControl($db);
         $out .= $regController->DoControl($db);
         $out .= $regBoatController->DoControl($db);
         $out .= $removeBoatController->DoControl($db);
+<<<<<<< HEAD
         $HTMLMember .= $memberController->DoControl($db);
         $HTMLReg .= $regController->DoControl($db);
+=======
+
+        $HTMLMember = $memberController->DoControl($db);
+        $HTMLReg = $regController->DoControl($db);
+>>>>>>> 979b16b02ada4cb16e2e16be9964c9dcd94bb78a
 
         $cv = new \View\CompositionView();
 

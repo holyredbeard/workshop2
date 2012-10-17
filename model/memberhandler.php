@@ -23,7 +23,7 @@ class MemberHandler {
     public function GetMember($id) {
         $memberInfo = array();
 
-        $query = "SELECT * FROM member WHERE id=?";
+        $query = "SELECT * FROM member WHERE memberId=?";
 
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("i", $id);
@@ -34,7 +34,7 @@ class MemberHandler {
     }
     
     public function DeleteMember($member) {
-        $query = "DELETE FROM member WHERE id=?";
+        $query = "DELETE FROM member WHERE membeId=?";
         
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("i", $member);
@@ -48,11 +48,11 @@ class MemberHandler {
         $lName = $userInfo[2];
         $SSN = $userInfo[3];
 
-        $query = "UPDATE member SET fname=?, lname=?, ssn=? WHERE id=?";
+        $query = "UPDATE member SET fname=?, lname=?, ssn=? WHERE memberId=?";
         
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("ssii", $fName, $lName, $SSN, $id);
         
-        $this->m_db->ChangeQuery($stmt);
+        $this->m_db->ExecuteQuery($stmt);
     }
 }
