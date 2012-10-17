@@ -12,9 +12,15 @@ class MemberController {
         $out = '';
         $member = array();
 
+
         $queryString = $memberView->GetQueryString();
 
-        if($queryString != null){
+        if ($queryString != null){
+            if ($memberView->TriedToChange()) {
+                $userInfo = $memberView->GetUserInfo();
+                
+                $memberHandler->ChangeInfo($userInfo);
+            }
             
             $action = parse_url($queryString, PHP_URL_QUERY);
             parse_str($queryString, $string);
@@ -23,20 +29,22 @@ class MemberController {
             $id = $string[id];
 
             if ($action == changeInfo) {
-                $out = $memberView->GetChangeForm();
+                $memberInfo = $memberHandler->GetMember($id);
+
+                $id = $memberInfo[0];
+                $fName = $memberInfo[1];
+                $lName = $memberInfo[2];
+                $SSN = $memberInfo[3];
+
+                $out = $memberView->GetChangeForm($id, $fName, $lName, $SSN);
             }
             elseif ($action == delete) {
                 $memberHandler->DeleteMember($id);
             }
         }
-        else if ($memberView->TriedToChange()) {
-            echo 'hej';
-            $userInfo = $memberView->GetUserInfo();
-            echo count($userInfo);
-        }
+        
+        
         else {
-            //$memberHandler->ChangeInfo($id);
-
             $members = $memberHandler->GetMembers();
             $out = $memberView->ShowMembers($members);
 

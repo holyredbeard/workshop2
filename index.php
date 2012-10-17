@@ -1,13 +1,21 @@
 <?php
 
+    // Database
     require_once('Database/DBConfig.php');
     require_once('Database/Database.php');
-    require_once('Controller/RegisterController.php');
+    
+    // Models
     require_once('Model/RegisterHandler.php');
-    require_once('View/RegisterView.php');
     require_once('Model/MemberHandler.php');
-    require_once('Controller/MemberController.php');
+
+    // Views
     require_once('View/MemberView.php');
+    require_once('View/RegisterView.php');
+    require_once('View/CompositionView.php');
+
+    // Controllers
+    require_once('Controller/RegisterController.php');
+    require_once('Controller/MemberController.php');
 
 class MasterController {
     public function DoControl() {
@@ -19,8 +27,12 @@ class MasterController {
         $regController = new \Controller\RegisterController();
         $memberController = new \Controller\MemberController();
 
-        $out .= $memberController->DoControl($db);
-        $out .= $regController->DoControl($db);
+        $HTMLMember .= $memberController->DoControl($db);
+        $HTMLReg .= $regController->DoControl($db);
+
+        $cv = new \View\CompositionView();
+
+        $out = $cv->merge($HTMLMember, $HTMLReg);
         
         // kill DB-conn
         $db->Close();
