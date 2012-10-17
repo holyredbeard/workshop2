@@ -10,7 +10,7 @@
 
     // Views
     require_once('View/MemberView.php');
-<<<<<<< HEAD
+
     require_once('Controller/RegisterBoatController.php');
     require_once('Controller/RemoveBoatController.php');
 =======
@@ -20,7 +20,6 @@
     // Controllers
     require_once('Controller/RegisterController.php');
     require_once('Controller/MemberController.php');
->>>>>>> a461b2693b41ce1227f70294ef762682815bf13a
 
 class MasterController {
     public function DoControl() {
@@ -32,23 +31,20 @@ class MasterController {
         $regController = new \Controller\RegisterController();
         $memberController = new \Controller\MemberController();
 
-<<<<<<< HEAD
         $regBoatController = new \Controller\RegisterBoatController();
         $removeBoatController = new \Controller\RemoveBoatController();
-
 
         $out .= $memberController->DoControl($db);
         $out .= $regController->DoControl($db);
         $out .= $regBoatController->DoControl($db);
         $out .= $removeBoatController->DoControl($db);
-=======
+
         $HTMLMember .= $memberController->DoControl($db);
         $HTMLReg .= $regController->DoControl($db);
 
         $cv = new \View\CompositionView();
 
         $out = $cv->merge($HTMLMember, $HTMLReg);
->>>>>>> a461b2693b41ce1227f70294ef762682815bf13a
         
         // kill DB-conn
         $db->Close();
