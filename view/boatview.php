@@ -74,8 +74,8 @@ class BoatView {
                                     <td>$boatIds[$i]</td>
                                     <td>$boatLengths[$i]</td>
                                     <td>$boatTypes[$i]</td>
-                                    <td><a href=\"index.php?action=editBoat&id=$boatIds[$i]\">Ändra</a></td>
-                                    <td><a href=\"index.php?action=removeBoat&id=$boatIds[$i]\">Ta bort</a></td>
+                                    <td><a href=\"index.php?action=editBoat&boatId=$boatIds[$i]\">Ändra</a></td>
+                                    <td><a href=\"index.php?action=removeBoat&boatIdRemove=$boatIds[$i]\">Ta bort</a></td>
                             </tr>";
 
             $i += 1;
