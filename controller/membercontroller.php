@@ -47,6 +47,7 @@ class MemberController {
             }
             else if ($action == delete) {
                 $memberHandler->DeleteMember($id);
+                $memberView->RedirectHome();
             }
         }
         else {

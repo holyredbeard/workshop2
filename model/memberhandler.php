@@ -39,11 +39,15 @@ class MemberHandler {
     
     public function DeleteMember($member) {
         $query = "DELETE FROM member WHERE memberId=?";
-        
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("i", $member);
-        
         $this->m_db->ExecuteQuery($stmt);
+        // also delete members boats
+        $query = "DELETE FROM boat WHERE memberId=?";
+        $stmt = $this->m_db->Prepare($query);
+        $stmt->bind_param("i", $member);
+        $this->m_db->ExecuteQuery($stmt);
+
     }
 
     public function ChangeInfo($userInfo) {

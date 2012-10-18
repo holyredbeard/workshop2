@@ -13,6 +13,8 @@ class MemberView {
     private $m_ssn = 'ssn';
     private $m_submitChange = 'submit';
 
+    private static $m_redirectHome = 'index.php';
+
     public function ShowMembers($members) {
         
         $memberIds = $members[0];
@@ -143,5 +145,9 @@ class MemberView {
     public function GetMemberToChange() {
         print_r($_SERVER);
         return $_GET[$this->m_changeMember];
+    }
+
+    public function RedirectHome() {
+        header('location:' . self::$m_redirectHome);
     }
 }
