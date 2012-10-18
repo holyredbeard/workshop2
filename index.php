@@ -41,7 +41,11 @@ class MasterController {
                 $HTMLBoat = $boatController->DoControlRegister();
                 break;
 
-            case 'boatIdRemove':
+            case 'removeBoat':
+                $HTMLBoat = $boatController->DoControlRemove();
+                break;
+
+            case 'editBoat':
                 $HTMLBoat = $boatController->DoControlEdit();
                 break;
 

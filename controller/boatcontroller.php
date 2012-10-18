@@ -48,7 +48,6 @@ class BoatController {
 	public function DoControlEdit() {
 		// EDIT
 		$outputHTML = '';
-		//if ($this->m_boatView->UserClickedEdit()) {}
 
 		// get id of cliked boat to edit
 		$boatId = $this->m_boatView->GetBoatId();
@@ -56,6 +55,14 @@ class BoatController {
 		$boatInfo = $this->m_boatHandler->GetInfoOnBoat($boatId);
 		// show edit form
 		$outputHTML .= $this->m_boatView->DoEditBox($boatInfo);
+
+		if ($this->m_boatView->UserClickedEdit()) {
+			// get posted data
+			$boatTypeId = $this->m_boatView->GetBoatType();
+			$length = $this->m_boatView->GetBoatLength();
+			// Update boat info
+			$this->m_boatHandler->UpdateBoatInfo($boatId, $length, $boatTypeId);
+		}
 
 		return $outputHTML;
 	}

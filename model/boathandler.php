@@ -43,7 +43,7 @@ class BoatHandler {
 	}
 
     public function GetMembersBoats($memberId) {
-
+		$boats = array();
         $query = "SELECT b.boatId, b.length, bt.type
                     FROM boat AS b
                         INNER JOIN member AS m
@@ -57,5 +57,13 @@ class BoatHandler {
         $stmt->bind_param('i', $memberId);
 
         $boats = $this->m_db->GetBoats($stmt);
+        return $boats;
+    }
+
+    public function UpdateBoatInfo($boatId, $length, $boatTypeId) {
+        $query = "UPDATE boat SET length = ?, boatTypeId = ? WHERE boatId = ?";
+        $stmt = $this->m_db->Prepare($query);
+        $stmt->bind_param("iii", $length, $boatTypeId, $boatId);
+        $this->m_db->ExecuteQuery($stmt);
     }
 }

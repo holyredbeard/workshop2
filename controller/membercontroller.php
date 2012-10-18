@@ -46,8 +46,7 @@ class MemberController {
                 $memberInfo = $memberHandler->GetMember($id);
                 $out .= $memberView->ShowFullMemberInfo($memberInfo);
 
-                $boats = $boatHandler->GetMembersBoats($memberId);
-                echo count($boats);
+                $boats = $boatHandler->GetMembersBoats($id);
             }
             else if ($action == delete) {
                 $memberHandler->DeleteMember($id);

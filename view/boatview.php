@@ -46,7 +46,7 @@ class BoatView {
 					<input type='radio' name='".self::BOAT_TYPE."' value='5'> Övriga<br />
 					<p>Längd</p>
 					<input type='text' name='".self::BOAT_LENGTH."' value='$length' />
-					<input type='submit' name='".self::BOAT_EDIT_SUBMIT."' value='Registrera båt' />
+					<input type='submit' name='".self::BOAT_EDIT_SUBMIT."' value='Ändra båt' />
 				</form>";
 
 		return $html;
