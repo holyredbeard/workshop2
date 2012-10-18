@@ -57,5 +57,7 @@ class BoatHandler {
         $stmt->bind_param('i', $memberId);
 
         $boats = $this->m_db->GetBoats($stmt);
+
+        return $boats;
     }
 }

@@ -23,7 +23,7 @@ class BoatView {
 					<input type='radio' name='".self::BOAT_TYPE."' value='3'> Motorbåt<br />
 					<input type='radio' name='".self::BOAT_TYPE."' value='4'> Kajak/Kanot<br />
 					<input type='radio' name='".self::BOAT_TYPE."' value='5'> Övriga<br />
-					<p>Längd</p>
+					<p>Längd (m)</p>
 					<input type='text' name='".self::BOAT_LENGTH."' />
 					<input type='submit' name='".self::BOAT_SUBMIT."' value='Registrera båt' />
 				</form>";
@@ -50,6 +50,39 @@ class BoatView {
 				</form>";
 
 		return $html;
+	}
+
+	public function ShowMembersBoats($boats) {
+
+		$boatIds = $boats[0];
+        $boatLengths = $boats[1];
+        $boatTypes = $boats[2];
+
+        $i = 0;
+
+        $boatInfo = "<div>
+                            <table>
+                                <tr>
+                                    <th>Båt-id</th>
+                                    <th>Längd (m)</th>
+                                    <th>Typ</th>
+                                </tr>";
+
+        foreach ($boatIds as $key) {
+            $boatInfo .= "<tr>
+                                    <td>$boatIds[$i]</td>
+                                    <td>$boatLengths[$i]</td>
+                                    <td>$boatTypes[$i]</td>
+                            </tr>";
+
+            $i += 1;
+        }
+
+        $boatInfo .= "</table>
+                    </div>";
+
+		return $boatInfo;
+
 	}
 
 	public function UserClickedRegister() {
