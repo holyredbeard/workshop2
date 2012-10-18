@@ -1,2 +1,6 @@
 
 database/dbconfig.php
+
+LÖ.PHP
+
+model/public function GetMembersBoats() {
