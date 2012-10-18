@@ -31,7 +31,7 @@ class BoatHandler {
         $query = "SELECT b.length, bt.type 
         			FROM boat AS b 
         			INNER JOIN boatType AS bt
-        			ON b.boatType = bt.boatType
+        			ON b.boatTypeId = bt.boatTypeId
         			WHERE b.boatId = ?";
 
         $stmt = $this->m_db->Prepare($query);

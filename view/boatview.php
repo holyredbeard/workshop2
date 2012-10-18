@@ -10,6 +10,7 @@ class BoatView {
 
 	const USER_ID = 'id';
 	const BOAT_ID = 'boatId';
+	const BOAT_ID_REMOVE = 'boatIdRemove';
 
 
 	public function DoRegisterBox() {
@@ -30,7 +31,10 @@ class BoatView {
 		return $html;
 	}
 
-	public function DoEditBox() {
+	public function DoEditBox($boatInfo) {
+		$length = $boatInfo[0];
+		$type = $boatInfo[1];
+
 		$html = "
 				<h2>Ändra båt</h2>
 				<form method='post'>
@@ -41,7 +45,7 @@ class BoatView {
 					<input type='radio' name='".self::BOAT_TYPE."' value='4'> Kajak/Kanot<br />
 					<input type='radio' name='".self::BOAT_TYPE."' value='5'> Övriga<br />
 					<p>Längd</p>
-					<input type='text' name='".self::BOAT_LENGTH."' value='' />
+					<input type='text' name='".self::BOAT_LENGTH."' value='$length' />
 					<input type='submit' name='".self::BOAT_EDIT_SUBMIT."' value='Registrera båt' />
 				</form>";
 
@@ -77,7 +81,7 @@ class BoatView {
 	}
 
 	public function UserClickedRemove() {
-		if (isset($_GET[self::BOAT_ID])) {
+		if (isset($_GET[self::BOAT_ID_REMOVE])) {
 			return true;
 		} else {
 			return false;

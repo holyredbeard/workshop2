@@ -34,12 +34,15 @@ class MasterController {
 
 
         $HTMLMember = $memberController->DoControl($db);
-        $HTMLBoat = $boatController->DoControlRemove();
         //
         switch ($_GET['action']) {
                 
             case 'addBoat':
                 $HTMLBoat = $boatController->DoControlRegister();
+                break;
+
+            case 'boatIdRemove':
+                $HTMLBoat = $boatController->DoControlEdit();
                 break;
 
             case 'register':
