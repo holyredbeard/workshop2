@@ -46,7 +46,6 @@ class BoatView {
 
 	    foreach($boatTypes as $value => $name) {
 	        $checked = $type == $name ? 'checked' : '';
-	        $lod .= $checked;
 	        $boats .= "<input type='radio' name='".self::BOAT_TYPE."' value='$value' $checked />$name<br />";
 	    }
 
