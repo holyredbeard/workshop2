@@ -49,7 +49,7 @@ class MemberController {
 
                 $boats = $boatHandler->GetMembersBoats($id);
                 $out .= $memberView->ShowFullMemberInfo($memberInfo);
-                $out .= $boatView->ShowMembersBoats($boats);
+                $out .= $memberView->ShowMembersBoats($boats);
             }
             else if ($action == delete) {
                 $memberHandler->DeleteMember($id);

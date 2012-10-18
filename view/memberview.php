@@ -81,6 +81,42 @@ class MemberView {
         return $memberInfo;
     }
 
+    public function ShowMembersBoats($boats) {
+
+        $boatIds = $boats[0];
+        $boatLengths = $boats[1];
+        $boatTypes = $boats[2];
+
+        $i = 0;
+
+        $boatInfo = "<div>
+                            <table>
+                            <form action='post'>
+                                <tr>
+                                    <th>Båt-id</th>
+                                    <th>Längd (m)</th>
+                                    <th>Typ</th>
+                                </tr>";
+
+        foreach ($boatIds as $key) {
+            $boatInfo .= "<tr>
+                                    <td>$boatIds[$i]</td>
+                                    <td>$boatLengths[$i]</td>
+                                    <td>$boatTypes[$i]</td>
+                                    <td><a href=\"index.php?action=editBoat&boatId=$boatIds[$i]\">Ändra</a></td>
+                                    <td><a href=\"index.php?action=removeBoat&boatId=$boatIds[$i]\">Ta bort</a></td>
+                            </tr>";
+
+            $i += 1;
+        }
+
+        $boatInfo .= "</table>
+                    </div>";
+
+        return $boatInfo;
+
+    }
+
     public function GetChangeForm($id, $fName, $lName, $SSN) {
         $changeForm = "<form method='post'>
                         <h3>Ändra medlemsinfo</h3>
