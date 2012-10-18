@@ -23,7 +23,7 @@ class MemberController {
 
             $action = $string[action];
             $id = $string[id];
-
+    
             if ($action == changeInfo) {
                 if ($memberView->TriedToChange()) {
                     $userInfo = $memberView->GetUserInfo();
@@ -47,7 +47,6 @@ class MemberController {
                 $memberInfo = $memberHandler->GetMember($id);
                 $boats = $boatHandler->GetMembersBoats($id);
 
-                $boats = $boatHandler->GetMembersBoats($id);
                 $out .= $memberView->ShowFullMemberInfo($memberInfo);
                 $out .= $memberView->ShowMembersBoats($boats);
             }

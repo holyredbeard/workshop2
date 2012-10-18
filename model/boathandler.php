@@ -22,7 +22,7 @@ class BoatHandler {
 		$query = "DELETE FROM boat WHERE boatId = ?";
         $stmt = $this->m_db->Prepare($query);
     	$stmt->bind_param('i', $boatId);
-    	$stmt->execute();
+    	$this->m_db->ExecuteQuery($stmt);
         $stmt->Close();
 	}
 
