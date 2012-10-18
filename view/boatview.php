@@ -34,21 +34,32 @@ class BoatView {
 		$length = $boatInfo[0];
 		$type = $boatInfo[1];
 
-		$html = "
-				<h2>Ändra båt</h2>
-				<form method='post'>
-					<p>Typ</p>
-					<input type='radio' name='".self::BOAT_TYPE."' value='1'> Segelbåt<br />
-					<input type='radio' name='".self::BOAT_TYPE."' value='2'> Motorseglare<br />
-					<input type='radio' name='".self::BOAT_TYPE."' value='3'> Motorbåt<br />
-					<input type='radio' name='".self::BOAT_TYPE."' value='4'> Kajak/Kanot<br />
-					<input type='radio' name='".self::BOAT_TYPE."' value='5'> Övriga<br />
-					<p>Längd</p>
+		$boatTypes = array(
+		        '1' => 'Segelbåt',
+		        '2' => 'Motorseglare',
+		        '3' => 'Motorbåt',
+		        '4' => 'Kajak/kanot',
+		        '5' => 'Övriga'
+		    );
+
+	    $optionsStr = '';
+
+	    foreach($boatTypes as $value => $name) {
+	        $checked = $type == $name ? 'checked' : '';
+	        $lod .= $checked;
+	        $boats .= "<input type='radio' name='".self::BOAT_TYPE."' value='$value' $checked />$name<br />";
+	    }
+
+	    $html = "
+	            <form method='post'>
+	            	<p>Typ</p>
+	                $boats
+	                <p>Längd</p>
 					<input type='text' name='".self::BOAT_LENGTH."' value='$length' />
 					<input type='submit' name='".self::BOAT_EDIT_SUBMIT."' value='Ändra båt' />
-				</form>";
+	            </form>";
 
-		return $html;
+	    return $html;
 	}
 
 	public function ShowMembersBoats($boats) {
