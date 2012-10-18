@@ -91,6 +91,27 @@ class Database {
         return $userInfo;
     }
 
+    public function GetBoatInfo($stmt) {
+
+        $boatInfo = array();
+        
+        if ($stmt->execute() == false) {
+            throw new \Exception($this->mysqli->error);
+        }  
+        
+        //Bind the $ret parameter so when we call fetch it gets its value
+        if ($stmt->bind_result($length, $type) == FALSE) {
+            throw new \Exception($this->mysqli->error);
+        }
+
+        while ($stmt->fetch()) {
+            $boatInfo[] = $length;
+            $boatInfo[] = $type;
+        }
+
+        return $boatInfo;
+    }
+
     public function Close() {
         return $this->mysqli->close();
     }

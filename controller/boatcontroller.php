@@ -43,7 +43,16 @@ class BoatController {
 			// remove boat
 			$this->m_boatHandler->RemoveBoat($boatId);
 		}
+	}
 
+	public function DoControllEdit() {
+		// EDIT
+		if ($this->m_boatView->UserClickedEdit()) {
+			// get id of cliked boat to edit
+			$boatId = $this->m_boatView->GetBoatId();
+			// get info on boat
+			$this->m_boatHandler->GetInfoOnBoat($boatId);
+		}
 	}
 
 }
