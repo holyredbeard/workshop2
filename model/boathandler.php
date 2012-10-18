@@ -41,4 +41,21 @@ class BoatHandler {
 
         return $boatInfo;
 	}
+
+    public function GetMembersBoats($memberId) {
+
+        $query = "SELECT b.boatId, b.length, bt.type
+                    FROM boat AS b
+                        INNER JOIN member AS m
+                            ON b.memberId = m.memberId
+                        INNER JOIN boatType AS bt
+                            ON b.boatTypeId = bt.boatTypeId
+                    WHERE m.memberId = ?                            
+                    GROUP BY b.boatId";
+
+        $stmt = $this->m_db->Prepare($query);
+        $stmt->bind_param('i', $memberId);
+
+        $boats = $this->m_db->GetBoats($stmt);
+    }
 }

@@ -59,6 +59,31 @@ class Database {
         return $members;
     }
 
+    public function GetBoats($stmt) {
+    $boats = array(
+            0 => array(),
+            1 => array(),
+            2 => array()
+        );
+    
+    $stmt->execute();
+    
+    //Bind the $ret parameter so when we call fetch it gets its value
+    if ($stmt->bind_result($boatId, $length, $type) == FALSE) {
+        throw new \Exception($this->mysqli->error);
+    }
+
+    while ($stmt->fetch()) {
+        array_push($boats[0], $boatId);
+        array_push($boats[1], $length);
+        array_push($boats[2], $type);
+    }
+    
+    $stmt->Close();
+    
+    return $boats;
+}
+
     public function ExecuteQuery($stmt) {
     	
         //execute the statement
