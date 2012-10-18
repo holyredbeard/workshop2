@@ -62,6 +62,7 @@ class BoatView {
 
         $boatInfo = "<div>
                             <table>
+                            <form action='post'>
                                 <tr>
                                     <th>Båt-id</th>
                                     <th>Längd (m)</th>
@@ -73,6 +74,8 @@ class BoatView {
                                     <td>$boatIds[$i]</td>
                                     <td>$boatLengths[$i]</td>
                                     <td>$boatTypes[$i]</td>
+                                    <td><a href=\"index.php?action=editBoat&id=$boatIds[$i]\">Ändra</a></td>
+                                    <td><a href=\"index.php?action=removeBoat&id=$boatIds[$i]\">Ta bort</a></td>
                             </tr>";
 
             $i += 1;
