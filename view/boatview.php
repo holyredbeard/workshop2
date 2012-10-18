@@ -10,7 +10,6 @@ class BoatView {
 
 	const USER_ID = 'id';
 	const BOAT_ID = 'boatId';
-	const BOAT_ID_REMOVE = 'boatIdRemove';
 
 
 	public function DoRegisterBox() {
@@ -75,7 +74,7 @@ class BoatView {
                                     <td>$boatLengths[$i]</td>
                                     <td>$boatTypes[$i]</td>
                                     <td><a href=\"index.php?action=editBoat&boatId=$boatIds[$i]\">Ändra</a></td>
-                                    <td><a href=\"index.php?action=removeBoat&boatIdRemove=$boatIds[$i]\">Ta bort</a></td>
+                                    <td><a href=\"index.php?action=removeBoat&boatId=$boatIds[$i]\">Ta bort</a></td>
                             </tr>";
 
             $i += 1;
@@ -117,7 +116,7 @@ class BoatView {
 	}
 
 	public function UserClickedRemove() {
-		if (isset($_GET[self::BOAT_ID_REMOVE])) {
+		if (isset($_GET[self::BOAT_ID])) {
 			return true;
 		} else {
 			return false;
