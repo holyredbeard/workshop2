@@ -89,7 +89,6 @@ class Database {
         //execute the statement
         if ($stmt->execute() == FALSE) {
             throw new \Exception($this->mysqli->error);
-            echo $this->mysqli->error;
         }
     }
 

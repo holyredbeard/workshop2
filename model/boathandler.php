@@ -65,5 +65,7 @@ class BoatHandler {
         $stmt = $this->m_db->Prepare($query);
         $stmt->bind_param("iii", $length, $boatTypeId, $boatId);
         $this->m_db->ExecuteQuery($stmt);
+
+        return $boats;
     }
 }

@@ -9,6 +9,7 @@ class MemberController {
         $memberView = new \View\MemberView();
         $memberHandler = new \Model\MemberHandler($db);
         $boatHandler = new \Model\BoatHandler($db);
+        $boatView = new \View\BoatView($db);
 
         $out = '';
         $member = array();
@@ -44,9 +45,11 @@ class MemberController {
             }
             else if ($action == showAllInfo) {
                 $memberInfo = $memberHandler->GetMember($id);
-                $out .= $memberView->ShowFullMemberInfo($memberInfo);
+                $boats = $boatHandler->GetMembersBoats($id);
 
                 $boats = $boatHandler->GetMembersBoats($id);
+                $out .= $memberView->ShowFullMemberInfo($memberInfo);
+                $out .= $boatView->ShowMembersBoats($boats);
             }
             else if ($action == delete) {
                 $memberHandler->DeleteMember($id);
